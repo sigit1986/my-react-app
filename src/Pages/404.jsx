@@ -3,17 +3,26 @@ import { useRouteError } from "react-router-dom";
 const ErrorPage = () => {
     const error = useRouteError();
     return(
-        <section className="bg-white dark:bg-gray-900">
-            <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-                <div className="mx-auto max-w-screen-sm text-center">
-                    <h1 className="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-primary-600 dark:text-primary-500">404</h1>
-                    <p className="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">Something's missing.</p>
-                    <p className="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">Sorry, we can't find that page. You'll find lots to explore on the home page. </p>
-                    <a href="#" className="inline-flex text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900 my-4">Back to Homepage</a>
-                </div>   
+        <body>
+            <div className="bg-gradient-to-r from-purple-300 to-blue-200">
+                <div className="w-9/12 m-auto py-16 min-h-screen flex items-center justify-center">
+                    <div className="bg-white shadow overflow-hidden sm:rounded-lg pb-8">
+                        <div className="border-t border-gray-200 text-center pt-8">
+                            <h1 className="text-9xl font-bold text-purple-400">404</h1>
+                            <h1 className="text-6xl font-medium py-8">oops! {error.statusText || error.message}</h1>
+                            <p className="text-2xl pb-8 px-12 font-medium">Oops! The page you are looking for does not exist. It might have been moved or deleted.</p>
+                            <button className="bg-gradient-to-r from-purple-400 to-blue-500 hover:from-pink-500 hover:to-orange-500 text-white font-semibold px-6 py-3 rounded-md mr-6">
+                            HOME
+                            </button>
+                            <button className="bg-gradient-to-r from-red-400 to-red-500 hover:from-red-500 hover:to-red-500 text-white font-semibold px-6 py-3 rounded-md">
+                            Contact Us
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
+        </body>
     )
-}
+};
 
 export default ErrorPage;

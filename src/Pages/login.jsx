@@ -5,6 +5,7 @@ const LoginPage = () =>{
     return(
         <AuthLayout title="Login">
             <FormLogin />
+            <p>Don't have an account? <a href="/register">Register</a></p>
         </AuthLayout>
     )
 }
