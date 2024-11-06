@@ -3,6 +3,7 @@ import Label from "./Label.jsx";
 
 
 const InputForm = (props) => {
+    // eslint-disable-next-line react/prop-types
     const {label, name, type, placeholder} = props;
     return(
         <div className="mb-6">

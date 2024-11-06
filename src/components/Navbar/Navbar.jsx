@@ -3,6 +3,7 @@ import { NavbarMenu } from "../../mockData/data"
 import { CiSearch } from "react-icons/ci"
 import { PiShoppingCartThin } from "react-icons/pi"
 import { MdMenu } from "react-icons/md"
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
   return (
@@ -34,11 +35,11 @@ const Navbar = () => {
           <button className="text-2xl hover:bg-primary hover:text-white rounded-full p-2 duration-200">
             <PiShoppingCartThin />
           </button>
-          <a href="/login">
+          <Link to="/login">
             <button className="hover:bg-primary text-primary font-semibold hover:text-white rounded-md border-2 border-primary
             px-6 py-2 duration-200 hidden md:block">Login
             </button>
-          </a>
+          </Link>
         </div>
         {/* Hamburger Menu */}
         <div className="md:hidden">
@@ -46,6 +47,7 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+    
   )
 }
 
