@@ -4,7 +4,9 @@ const Button = (props) => {
     return (
       <button 
         className={`h-10 px-6 font-semibold rounded-md ${classname} text-white`} 
-        type="submit">
+        type="button" 
+        onClick={() => {console.log("clicked")}}  
+      >
         {children}
       </button>
     )
