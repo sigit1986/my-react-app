@@ -3,15 +3,25 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import CardProduct from "../components/Fragments/CardProduct";
 import Button from "../components/Elements/Button";
 import { getProducts } from "../services/product.service";
+import { getUsername } from "../services/auth.service";
 
-const email = localStorage.getItem("email");
 const ProductPage = () => {
     const [cart, setCart] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
     const [products, setProducts] = useState([]);
-
+    const [username, setUsername] = useState("");
+    
     useEffect(() => {
         setCart(JSON.parse(localStorage.getItem("cart")) || []);
+    }, []);
+    
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            setUsername(getUsername(token));
+        }else {
+            window.location.href = "/login";
+        }
     }, []);
 
     useEffect(() => {
@@ -31,8 +41,7 @@ const ProductPage = () => {
         }
     },[cart, products]);
     const handleLogout = () => {
-        localStorage.removeItem("email");
-        localStorage.removeItem("password");
+        localStorage.removeItem("token");
         window.location.href = "/login";
     }
 
@@ -68,7 +77,7 @@ const ProductPage = () => {
     return (
         <Fragment>
             <div className="flex justify-end h-20 bg-blue-600 text-white items-center px-10">
-                {email}
+                {username}
                 <Button classname="ml-5 bg-black" onClick={handleLogout}>Logout</Button>
             </div>
             <div className="flex flex-wrap justify-center py-4">
