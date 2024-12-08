@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import Button from "../Elements/Button";
+import { Link } from "react-router-dom";
 const CardProduct = (props) => {
     const {children} = props;
     return (
@@ -11,11 +12,11 @@ const CardProduct = (props) => {
 }
 
 const Header = (props) => {
-    const {image} = props;
+    const {image, id} = props;
     return ( 
-        <a href="http://">
+        <Link to={`/product/${id}`}>  
             <img className="rounded-t-lg p-4 h-60 w-full object-cover" src={image} alt="shoes-1" />
-        </a>
+        </Link>
     )
 }
 
